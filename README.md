@@ -10,7 +10,7 @@
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | kana_last_name     | string | null: false               |
-| kana_last_name     | string | null: false               |
+| kana_fist_name     | string | null: false               |
 | birthday           | date   | null: false               |
 
 ### Association
