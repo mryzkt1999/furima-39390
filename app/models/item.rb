@@ -11,9 +11,8 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :item_name, presence: true
   validates :item_info, presence: true
-  validates :item_price, presence: true,
-                         format: { with: /\A((3\d{2})|[4-9]\d{2}|[1-9]\d{3,6}|10000000)\z/, message: 'is out of setting range' }
-  validates :item_price, format: { with: /\A\d+\z/, message: 'is out of setting range' }
+  validates :item_price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+                         format: { with: /\A[0-9]+\z/, message: 'is out of setting range' }
   validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_sales_status_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" }
