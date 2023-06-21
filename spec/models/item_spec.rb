@@ -70,19 +70,19 @@ RSpec.describe Item, type: :model do
       it '販売価格が半角以外では出品できない' do
         @item.item_price = '５００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Item price is not a number')
+        expect(@item.errors.full_messages).to include('Item price is out of setting range')
       end
 
       it '販売価格が299円以下では出品できない' do
         @item.item_price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Item price must be greater than or equal to 300')
+        expect(@item.errors.full_messages).to include('Item price is out of setting range')
       end
 
       it '販売価格が1000万円以上では出品できない' do
         @item.item_price = '10000001'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Item price must be less than or equal to 9999999')
+        expect(@item.errors.full_messages).to include('Item price is out of setting range')
       end
 
       it 'userが紐付いてなければ出品できない' do
