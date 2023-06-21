@@ -79,7 +79,6 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password  is invalid. Include both letters and numbers')
       end
 
-      
       it '性（全角）が空では登録できない' do
         @user.last_name = ''
         @user.valid?
@@ -91,7 +90,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name  is invalid. Input full-width characters\n    ")
       end
-      
+
       it '名（全角）が空では登録できない' do
         @user.first_name = ''
         @user.valid?
