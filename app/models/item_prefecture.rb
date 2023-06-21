@@ -1,6 +1,6 @@
-class Item_Prefecture < ActiveHash::Base
+class ItemPrefecture < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },  
+    { id: 1, name: '---' },
     { id: 2, name: '北海道' },
     { id: 3, name: '青森' },
     { id: 4, name: '岩手' },
@@ -37,20 +37,19 @@ class Item_Prefecture < ActiveHash::Base
     { id: 35, name: '広島' },
     { id: 36, name: '山口' },
     { id: 37, name: '徳島' },
-    { id: 38, name: '香川' }
-    { id: 39, name: '愛媛' }
-    { id: 40, name: '高知' }
-    { id: 41, name: '福岡' }
-    { id: 42, name: '佐賀' }
-    { id: 43, name: '長崎' }
-    { id: 44, name: '熊本' }
-    { id: 45, name: '大分' }
-    { id: 46, name: '宮崎' }
-    { id: 47, name: '鹿児島' }
+    { id: 38, name: '香川' },
+    { id: 39, name: '愛媛' },
+    { id: 40, name: '高知' },
+    { id: 41, name: '福岡' },
+    { id: 42, name: '佐賀' },
+    { id: 43, name: '長崎' },
+    { id: 44, name: '熊本' },
+    { id: 45, name: '大分' },
+    { id: 46, name: '宮崎' },
+    { id: 47, name: '鹿児島' },
     { id: 48, name: '沖縄' }
   ]
- 
-   include ActiveHash::Associations
-   has_many :items
- 
- 
+
+  include ActiveHash::Associations
+  has_many :items
+end
