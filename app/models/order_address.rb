@@ -10,7 +10,8 @@ class OrderAddress
     validates :city
     validates :house_number
     validates :phone_number, numericality: { only_integer: true, message: 'is invalid' },
-                             length: { minimum: 10, maximum: 11, message: 'is too short' }
+                             length: { minimum: 10, message: 'is too short' }
+    validates :phone_number, length: { maximum: 11, message: 'is invalid' }
   end
   validates :item_prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
 
