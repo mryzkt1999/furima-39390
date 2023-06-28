@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one  :purchase_record
+- has_one  :oder
 
 ## items テーブル
 
@@ -36,26 +36,26 @@
 ### Association
 
 - belongs_to :user
-- has_one  :purchase_record
+- has_one  :oder
 - 
-## shipping_destinations テーブル
+## adresses テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_cord     | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | city            | string     | null: false                    |
-| adress          | string     | null: false                    |
+| house_number    | string     | null: false                    |
 | building        | string     |                                |
 | phone_number    | string     | null: false                    | 
-| purchase_record | references | null: false, foreign_key: true |
+| oder            | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :purchase_record
+- belongs_to :oder
 
-## purchase_records テーブル
+## oders テーブル
 
 | Column       | Type       | Options                        |
 | ------- -----| ---------- | ------------------------------ |
@@ -66,5 +66,5 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :shipping_destination
+- has_one    :address
 
