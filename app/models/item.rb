@@ -9,11 +9,14 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-  validates :image, presence: true
-  validates :item_name, presence: true
-  validates :item_info, presence: true
-  validates :item_price, presence: true,
-                         numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
+  with_options presence: true do
+    validates :image
+    validates :item_name
+    validates :item_info
+    validates :item_price, numericality: { only_integer: true, message: 'is invalid.Input half-width characters' }
+  end
+  validates :item_price,
+            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
   validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_sales_status_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" }
